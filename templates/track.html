@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Track your package{% endblock %}
+
+{% block navTrack%}active{% endblock %}
+
+{% block content %}
+  <div class="mt-5 p-5 mx-auto" style="max-width:50rem;">
+    <div class="card text-center mt-5">
+      <div class="card-header">
+        Track your Package
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Enter Tracking ID</h5>
+        <form class="card-text">
+            <input type="text" placeholder="Tracking ID">
+            <button type="submit" class="btn-xs btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

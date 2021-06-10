@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app.
+       * In addition, include the firebase-auth SDK:
+       * <script src="https://www.gstatic.com/firebasejs/[FIREBASE VERSION USED IN SNIPPET]/firebase-auth.js"></script> *
+       ***************************************************************************************** -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+
+  </head>
+  <body>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDpc77bXxkhBXHiXs4z0sFcYv-unk2nAiU",
+        authDomain: "electrum-70741.firebaseapp.com",
+        projectId: "electrum-70741",
+        storageBucket: "electrum-70741.appspot.com",
+        messagingSenderId: "645217415483",
+        appId: "1:645217415483:web:cf9dc90c51fe335efcc71e",
+        measurementId: "G-RT507Q9ZLR"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '{{ url_for('track') }}',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebaseui.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebaseui.auth.PhoneAuthProvider.PROVIDER_ID,
+        ],
+        // tosUrl and privacyPolicyUrl accept either url string or a callback
+        // function.
+        // Terms of service url/callback.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url/callback.
+        privacyPolicyUrl: function() {
+          window.location.assign('<your-privacy-policy-url>');
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>    <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-spa">
+      <div id="firebaseui-container" lang="en">
+        <div class="firebaseui-container firebaseui-page-provider-sign-in firebaseui-id-page-provider-sign-in firebaseui-use-spinner">
+          <div class="firebaseui-card-content">
+            <form onsubmit="return false;">
+              <ul class="firebaseui-idp-list">
+                <li class="firebaseui-list-item">
+                  <button class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button" data-provider-id="google.com" style="background-color:#ffffff" data-upgraded=",MaterialButton">
+                    <span class="firebaseui-idp-icon-wrapper">
+                      <img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+                    </span>
+                    <span class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with Google</span>
+                    <span class="firebaseui-idp-text firebaseui-idp-text-short">Google</span>
+                  </button>
+                </li>
+                <li class="firebaseui-list-item">
+                  <button class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-phone firebaseui-id-idp-button" data-provider-id="phone" style="background-color:#02bd7e" data-upgraded=",MaterialButton">
+                    <span class="firebaseui-idp-icon-wrapper">
+                      <img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/phone.svg">
+                    </span>
+                    <span class="firebaseui-idp-text firebaseui-idp-text-long">Sign in with phone</span>
+                    <span class="firebaseui-idp-text firebaseui-idp-text-short">Phone</span>
+                  </button>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="firebaseui-card-footer firebaseui-provider-sign-in-footer">
+            <p class="firebaseui-tos firebaseui-tospp-full-message">
+              By continuing, you are indicating that you accept our
+              <a href="javascript:void(0)" class="firebaseui-link firebaseui-tos-link" target="_blank">Terms of Service</a>
+              and <a href="javascript:void(0)" class="firebaseui-link firebaseui-pp-link" target="_blank">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

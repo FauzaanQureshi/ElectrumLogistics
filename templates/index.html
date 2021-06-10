@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Electrum Logistics{% endblock %}
+
+{% block navHome%}active{% endblock %}
+
+{% block content %}
+  <div class="mx-auto" style="max-width: 50rem;">
+    <br>
+    <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2750">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card text-light bg-warning shadow-lg p-3 mb-3 bg-body rounded"
+         style="max-width: 50rem;
+                 background-image: url({{ url_for('static', filename='pickup.png') }});
+                background-size: cover;
+                 background-position: right;
+                 background-repeat: no-repeat">
+            <div class="card-header"><br><br><br></div>
+          <div class="card-body">
+            <h2 class="card-title">Doorstep Pickup</h2>
+            <p class="card-text">We will pickup your package right from your door step,<br>Saving you from the long queue and burden of offices.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card text-light bg-warning shadow-lg p-3 mb-3 bg-body rounded"
+         style="max-width: 50rem;
+                background-image: url({{ url_for('static', filename='rs.png') }});
+                background-size: cover;
+                background-position: top;
+                background-repeat: no-repeat;">
+            <div class="card-header"><br><br><br></div>
+          <div class="card-body">
+            <h2 class="card-title">Economic Pricing</h2>
+            <p class="card-text text-light">Save money on both International and Domestic<br>Deliveries.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card text-light bg-warning shadow-lg p-3 mb-3 bg-body rounded"
+         style="max-width: 50rem;
+                 background-image: url({{ url_for('static', filename='truck.png') }});
+                 background-position: right;
+                 background-repeat: no-repeat">
+            <div class="card-header"><br><br><br></div>
+          <div class="card-body">
+            <h2 class="card-title">Lightning Fast Deliveries</h2>
+            <p class="card-text">Get packages delivered faster without delays.<br><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <br>
+    <div class="card text-center text-light bg-warning shadow-lg p-3 mb-3 bg-body rounded"
+         style="max-width: 50rem;background: linear-gradient(to bottom right, blue, pink);">
+      <div class="card-body">
+        <h2 class="card-title">International Delivery</h2>
+        <p class="card-text">Deliver from anywhere in India, to anywhere in the World.</p>
+        <a href="{{ url_for("contact_us") }}" class="btn btn-danger">Get Quote</a>
+      </div>
+    </div>
+
+    <br>
+    <div class="card text-center text-dark bg-warning shadow-lg p-3 mb-3 bg-body rounded"
+         style="max-width: 50rem;background: linear-gradient(to bottom right, cyan, yellow);">
+      <div class="card-body">
+        <h2 class="card-title">Domestic Delivery</h2>
+        <p class="card-text">Deliver from anywhere in India, to anywhere in India.</p>
+        <a href="{{ url_for("contact_us") }}" class="btn btn-danger">Get Quote</a>
+      </div>
+    </div>
+  </div>
+  <br>
+{% endblock %}
